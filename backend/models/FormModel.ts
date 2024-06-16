@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-// Define interface for the schema
+// interface for the schema
 interface IBankingInfo extends Document {
   firstName: string;
   lastName: string;

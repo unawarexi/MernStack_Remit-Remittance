@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Define the base URL for your backend API
-const baseURL = 'http://localhost:5000/api/form'; // Adjust the URL according to your backend setup
+const baseURL = 'https://remit-system.onrender.com/api/form'; // Adjust the URL according to your backend setup
 
 // Define interfaces for the banking information
 interface BankingInfo {

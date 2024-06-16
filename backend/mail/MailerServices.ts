@@ -8,23 +8,23 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // Use `true` for port 465, `false` for all other ports
   auth: {
-    user: 'nordea.monetaryremittance.plc@gmail.com', // Your email address
-    pass: 'Plmoknijb.....11??', // Your email password
+    user: '', // Your nor..d  email address
+    pass: '', // Your p.. email password
   },
 });
 
 // const transporter = nodemailer.createTransport({
 //   service: 'gmail', // Use Gmail's SMTP server
 //   auth: {
-//     user: 'nordea.monetaryremittance.plc@gmail.com', // Your email address
-//     pass: 'Plmoknijb.....11??', // Your email password
+//     user: 
+//     pass: 
 //   },
 // });
 
 
 const sendMail = async (to: string, subject: string, text: string) => {
   const mailOptions = {
-    from: 'nordea.monetaryremittance.plc@gmail.com',
+    from: '',
     to,
     subject,
     text,

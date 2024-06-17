@@ -11,8 +11,18 @@ import Mobile from "../assets/logo-wall/mobile.png";
 import Ikeja from "../assets/logo-wall/ikeja.png";
 import Dstv from "../assets/logo-wall/dstv.png";
 import LogoWall from "../common/LogoWall";
+import React from "react";
 
-function Partners() {
+interface LogoWallProps {
+  src1: string;
+  src2: string;
+  src3: string;
+  alt1: string;
+  alt2: string;
+  alt3: string;
+}
+
+const Partners: React.FC = () => {
   return (
     <section id="partners" className="mt-20 flex flex-col bg-gray-50 py-20">
       <article className="mb-10 w-full px-8 text-center lg:px-12">
@@ -23,8 +33,8 @@ function Partners() {
           Connect your other accounts to Kobodrop seamlessly. Kobodrop supports
           200+
           <br />
-          integrations with other payment platforms like stripe, paypal,
-          payoneer and others
+          integrations with other payment platforms like Stripe, PayPal,
+          Payoneer and others
         </p>
       </article>
       <div className="xl:flex xl:justify-center">
@@ -65,6 +75,6 @@ function Partners() {
       </div>
     </section>
   );
-}
+};
 
 export default Partners;

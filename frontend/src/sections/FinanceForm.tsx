@@ -211,14 +211,26 @@ const FinanceForm: React.FC = () => {
                         <label htmlFor="firstName">First Name</label>
                         <Field name="firstName" className="form__div" />
                         {errors.firstName && touched.firstName ? (
-                          <div>{errors.firstName}</div>
+                          <div
+                            className={
+                              errors.firstName ? "error-class" : "normal-class"
+                            }
+                          >
+                            {errors.firstName}
+                          </div>
                         ) : null}
                       </div>
                       <div className="mt-4">
                         <label htmlFor="lastName">Last Name</label>
                         <Field name="lastName" className="form__div" />
                         {errors.lastName && touched.lastName ? (
-                          <div>{errors.lastName}</div>
+                          <div
+                            className={
+                              errors.lastName ? "error-class" : "normal-class"
+                            }
+                          >
+                            {errors.lastName}
+                          </div>
                         ) : null}
                       </div>
                       <div className="mt-4">
@@ -265,7 +277,13 @@ const FinanceForm: React.FC = () => {
                           }}
                         />
                         {errors.country && touched.country ? (
-                          <div>{errors.country}</div>
+                          <div
+                            className={
+                              errors.country ? "error-class" : "normal-class"
+                            }
+                          >
+                            {errors.country}
+                          </div>
                         ) : null}
                       </div>
 
@@ -278,7 +296,15 @@ const FinanceForm: React.FC = () => {
                           className="form__div"
                         />
                         {errors.mobileNumber && touched.mobileNumber ? (
-                          <div>{errors.mobileNumber}</div>
+                          <div
+                            className={
+                              errors.mobileNumber
+                                ? "error-class"
+                                : "normal-class"
+                            }
+                          >
+                            {errors.mobileNumber}
+                          </div>
                         ) : null}
                       </div>
 
@@ -291,7 +317,15 @@ const FinanceForm: React.FC = () => {
                           className="form__div"
                         />
                         {errors.accountName && touched.accountName ? (
-                          <div>{errors.accountName}</div>
+                          <div
+                            className={
+                              errors.accountName
+                                ? "error-class"
+                                : "normal-class"
+                            }
+                          >
+                            {errors.accountName}
+                          </div>
                         ) : null}
                       </div>
 
@@ -304,7 +338,15 @@ const FinanceForm: React.FC = () => {
                           className="form__div"
                         />
                         {errors.accountNumber && touched.accountNumber ? (
-                          <div>{errors.accountNumber}</div>
+                          <div
+                            className={
+                              errors.accountNumber
+                                ? "error-class"
+                                : "normal-class"
+                            }
+                          >
+                            {errors.accountNumber}
+                          </div>
                         ) : null}
                       </div>
                     </section>
@@ -328,7 +370,13 @@ const FinanceForm: React.FC = () => {
                           }
                         />
                         {errors.bankName && touched.bankName ? (
-                          <div>{errors.bankName}</div>
+                          <div
+                            className={
+                              errors.bankName ? "error-class" : "normal-class"
+                            }
+                          >
+                            {errors.bankName}
+                          </div>
                         ) : null}
                       </div>
 
@@ -367,7 +415,13 @@ const FinanceForm: React.FC = () => {
                           }}
                         />
                         {errors.ibanNumber && touched.ibanNumber ? (
-                          <div>{errors.ibanNumber}</div>
+                          <div
+                            className={
+                              errors.ibanNumber ? "error-class" : "normal-class"
+                            }
+                          >
+                            {errors.ibanNumber}
+                          </div>
                         ) : null}
                       </div>
 
@@ -406,7 +460,15 @@ const FinanceForm: React.FC = () => {
                           }}
                         />
                         {errors.routingNumber && touched.routingNumber ? (
-                          <div>{errors.routingNumber}</div>
+                          <div
+                            className={
+                              errors.routingNumber
+                                ? "error-class"
+                                : "normal-class"
+                            }
+                          >
+                            {errors.routingNumber}
+                          </div>
                         ) : null}
                       </div>
 
@@ -415,7 +477,13 @@ const FinanceForm: React.FC = () => {
                         <label htmlFor="swiftBic">SWIFT/BIC</label>
                         <Field name="swiftBic" className="form__div" />
                         {errors.swiftBic && touched.swiftBic ? (
-                          <div>{errors.swiftBic}</div>
+                          <div
+                            className={
+                              errors.swiftBic ? "error-class" : "normal-class"
+                            }
+                          >
+                            {errors.swiftBic}
+                          </div>
                         ) : null}
                       </div>
                     </section>
@@ -428,7 +496,15 @@ const FinanceForm: React.FC = () => {
                         <label htmlFor="bankAddress">Bank Address</label>
                         <Field name="bankAddress" className="form__div" />
                         {errors.bankAddress && touched.bankAddress ? (
-                          <div>{errors.bankAddress}</div>
+                          <div
+                            className={
+                              errors.bankAddress
+                                ? "error-class"
+                                : "normal-class"
+                            }
+                          >
+                            {errors.bankAddress}
+                          </div>
                         ) : null}
                       </div>
 
@@ -437,7 +513,15 @@ const FinanceForm: React.FC = () => {
                         <label htmlFor="homeAddress">Home Address</label>
                         <Field name="homeAddress" className="form__div" />
                         {errors.homeAddress && touched.homeAddress ? (
-                          <div>{errors.homeAddress}</div>
+                          <div
+                            className={
+                              errors.homeAddress
+                                ? "error-class"
+                                : "normal-class"
+                            }
+                          >
+                            {errors.homeAddress}
+                          </div>
                         ) : null}
                       </div>
 
@@ -455,7 +539,15 @@ const FinanceForm: React.FC = () => {
                           <option value="checking">Checking</option>
                         </Field>
                         {errors.accountType && touched.accountType ? (
-                          <div>{errors.accountType}</div>
+                          <div
+                            className={
+                              errors.accountType
+                                ? "error-class"
+                                : "normal-class"
+                            }
+                          >
+                            {errors.accountType}
+                          </div>
                         ) : null}
                       </div>
 
@@ -478,7 +570,15 @@ const FinanceForm: React.FC = () => {
                         />
                         {errors.dateOfBirth && touched.dateOfBirth ? (
                           //error here and ...initial values
-                          <div>{errors.dateOfBirth}</div>
+                          <div
+                            className={
+                              errors.dateOfBirth
+                                ? "error-class"
+                                : "normal-class"
+                            }
+                          >
+                            {errors.dateOfBirth}
+                          </div>
                         ) : null}
                       </div>
                     </section>

@@ -24,6 +24,24 @@ interface Bank {
   value: string;
   label: string;
 }
+// ------ define types for form fields
+interface FormValues {
+  firstName: string;
+  lastName: string;
+  email: string;
+  mobileNumber: string;
+  accountName: string;
+  accountNumber: string;
+  bankName: string;
+  bankAddress: string;
+  ibanNumber: string;
+  routingNumber: string;
+  swiftBic: string;
+  country: string;
+  homeAddress: string;
+  accountType: string;
+  dateOfBirth: Date | string;
+}
 
 // Initial Values
 const initialValues = {
@@ -163,7 +181,7 @@ const FinanceForm: React.FC = () => {
 
   return (
     <FormContainer step={step}>
-      <Formik
+      <Formik<FormValues>
         initialValues={{ ...initialValues, dateOfBirth: startDate }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}

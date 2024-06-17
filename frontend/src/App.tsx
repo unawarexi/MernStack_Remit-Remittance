@@ -6,6 +6,14 @@ import Nav from "./sections/Nav";
 import Partners from "./sections/Partners";
 import Reviews from "./sections/Reviews";
 import FinanceForm from "./sections/FinanceForm";
+import "./App.css";
+
+import MainHeroImage from "./assets/MainHeroImage.jpg";
+import sub1 from "./assets/sub1.png";
+import sub2 from "./assets/sub2.png";
+import card1 from "./assets/card1-removebg-preview.png";
+import card2 from "./assets/card2-removebg-preview.png";
+import cluster from "./assets/cluster.png";
 
 function App() {
   return (
@@ -23,7 +31,14 @@ function App() {
 function LandingPage() {
   return (
     <>
-      <Hero />
+      <Hero
+        MainHeroImage={MainHeroImage}
+        cluster={cluster}
+        card1={card1}
+        card2={card2}
+        sub1={sub1}
+        sub2={sub2}
+      />
       <Features />
       <Partners />
       <Reviews />

@@ -24,23 +24,23 @@ const BankingSchema: Schema<IBankingInfo> = new Schema({
   firstName: {
     type: String,
     required: true,
-    match: /^[a-zA-Z\s]+$/,
+    // match: /^[a-zA-Z\s]+$/,
   },
   lastName: {
     type: String,
     required: true,
-    match: /^[a-zA-Z\s]+$/,
+    // match: /^[a-zA-Z\s]+$/,
   },
   email: {
     type: String,
     required: true,
     unique: true,
-    match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+    // match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
   },
   mobileNumber: {
     type: String,
     required: true,
-    match: /^[0-9]{10,15}$/, 
+    // match: /^[0-9]{10,15}$/, 
   },
   accountName: {
     type: String,
@@ -49,7 +49,7 @@ const BankingSchema: Schema<IBankingInfo> = new Schema({
   accountNumber: {
     type: String,
     required: true,
-    match: /^[0-9]{4,20}$/,
+    // match: /^[0-9]{4,20}$/,
   },
   bankName: {
     type: String,
@@ -67,12 +67,12 @@ const BankingSchema: Schema<IBankingInfo> = new Schema({
       },
       message: 'Either ibanNumber or routingNumber must be provided.'
     },
-    match: /^[A-Z]{2}\d{2}[A-Z\d]{4}\d{7}([A-Z\d]?){0,16}$/, 
+    // match: /^[A-Z]{2}\d{2}[A-Z\d]{4}\d{7}([A-Z\d]?){0,16}$/, 
   },
   swiftBic: {
     type: String,
     required: true,
-    match: /^[A-Z]{4}[A-Z]{2}\d{2}(\d{3})?$/, 
+    // match: /^[A-Z]{4}[A-Z]{2}\d{2}(\d{3})?$/, 
   },
   routingNumber: {
     type: String,
@@ -82,7 +82,7 @@ const BankingSchema: Schema<IBankingInfo> = new Schema({
       },
       message: 'Either routingNumber or ibanNumber must be provided.'
     },
-    match: /^\d{9}$/, 
+    // match: /^\d{9}$/, 
   },
   country: {
     type: String,

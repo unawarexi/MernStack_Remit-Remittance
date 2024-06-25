@@ -6,8 +6,8 @@ import Linkedin from "../assets/logos/icons8-linkedin.svg";
 
 function Footer() {
   return (
-    <section className="bg-gray-800">
-      <div className="flex max-w-7xl flex-col px-8 py-8 text-gray-300 lg:px-12 lg:py-12 xl:m-auto">
+    <section className="bg-blue-800">
+      <div className="flex max-w-7xl flex-col px-8 py-8 text-white lg:px-12 lg:py-12 xl:m-auto">
         <div className="flex flex-col justify-between gap-12 md:flex-row md:gap-0">
           <div>
             <img

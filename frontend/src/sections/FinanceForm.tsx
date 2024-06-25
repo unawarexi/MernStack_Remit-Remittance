@@ -71,7 +71,7 @@ const FinanceForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
-  const [useIbanValidation, setUseIbanValidation] = useState(true); // State to toggle between IBAN and Routing number validation
+  const [useIbanValidation, setUseIbanValidation] = useState(null); // State to toggle between IBAN and Routing number validation
 
   // YUP VALIDATION SCHEMA
   const validationSchema = Yup.object().shape({

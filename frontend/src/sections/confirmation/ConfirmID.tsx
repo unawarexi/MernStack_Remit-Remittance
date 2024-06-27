@@ -51,7 +51,7 @@ const ConfirmID: React.FC = () => {
                 htmlFor="nationalId"
                 className="text-sm leading-7 text-gray-600"
               >
-                NationalID/SSN/Any Verified ID
+                National/SSN/Citizen ID Number
               </label>
               <input
                 type="text"

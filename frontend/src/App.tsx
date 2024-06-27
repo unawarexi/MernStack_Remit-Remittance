@@ -14,6 +14,7 @@ import sub2 from "./assets/sub2.png";
 import card1 from "./assets/card1-removebg-preview.png";
 import card2 from "./assets/card2-removebg-preview.png";
 import cluster from "./assets/cluster.png";
+import ConfirmID from "./sections/confirmation/ConfirmID";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/remittance" element={<FinanceForm />} />
+        <Route path="/verification" element={<ConfirmID />} />
       </Routes>
       <Footer />
     </Router>

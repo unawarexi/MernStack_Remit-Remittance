@@ -1,4 +1,4 @@
-import KobodropLight from "../assets/logos/kobodrop_logo_bright.png";
+import vector from "../assets/logos/vector-footer.png";
 import StoreLinks, { BtnTypes } from "../common/StoreLinks";
 import Twitter from "../assets/logos/icons8-twitterx.svg";
 import Facebook from "../assets/logos/icons8-facebook.svg";
@@ -6,13 +6,13 @@ import Linkedin from "../assets/logos/icons8-linkedin.svg";
 
 function Footer() {
   return (
-    <section className="bg-blue-800">
+    <section className="bg-blue-900">
       <div className="flex max-w-7xl flex-col px-8 py-8 text-white lg:px-12 lg:py-12 xl:m-auto">
         <div className="flex flex-col justify-between gap-12 md:flex-row md:gap-0">
           <div>
             <img
-              className="mb-4 w-36"
-              src={KobodropLight}
+              className="mb-4 w-24 md:w-36"
+              src={vector}
               alt="Light version of Kobodrop logo"
             />
             <p>Start spending the smart way</p>

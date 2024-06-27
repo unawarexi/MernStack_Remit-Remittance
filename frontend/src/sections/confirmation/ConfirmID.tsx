@@ -62,7 +62,7 @@ const ConfirmID: React.FC = () => {
                   formik.touched.nationalId && formik.errors.nationalId
                     ? "border-red-500"
                     : "border-gray-300"
-                } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:text-base`}
+                } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:text-base lg:py-2`}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.nationalId}
@@ -91,7 +91,7 @@ const ConfirmID: React.FC = () => {
                     formik.errors.accountPassword
                       ? "border-red-500"
                       : "border-gray-300"
-                  } bg-white px-3  py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:text-base`}
+                  } bg-white px-3  py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:text-base lg:py-2`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.accountPassword}
@@ -128,7 +128,7 @@ const ConfirmID: React.FC = () => {
                     formik.errors.confirmPassword
                       ? "border-red-500"
                       : "border-gray-300"
-                  } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:text-base`}
+                  } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:text-base lg:py-2`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.confirmPassword}
@@ -150,7 +150,7 @@ const ConfirmID: React.FC = () => {
 
             <button
               type="submit"
-              className="mt-4 rounded border-0 bg-indigo-500 px-6 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none disabled:opacity-50"
+              className="mt-4 rounded border-0 bg-blue-600 px-6 py-2 text-lg text-white hover:bg-blue-700 focus:outline-none disabled:opacity-50"
               disabled={!formik.isValid || formik.isSubmitting}
             >
               Verify ID

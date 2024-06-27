@@ -2,7 +2,7 @@ import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import { Link } from "react-router-dom";
-import Kobodrop from "../assets/logos/kobodrop_logo.svg";
+import NavLogo from "../assets/logos/Nordea-Bank-Logo.png";
 import ButtonLink from "../common/ButtonLink";
 
 function Nav() {
@@ -22,7 +22,11 @@ function Nav() {
           <div className="flex h-[15vh] max-w-7xl items-center justify-between px-8 lg:px-12 xl:m-auto">
             <div className="flex">
               <Link to="/">
-                <img src={Kobodrop} alt="Kobodrop logo" />
+                <img
+                  src={NavLogo}
+                  alt="Kobodrop logo"
+                  className="mx-0 w-32 md:w-48 lg:mx-10"
+                />
               </Link>
               <div className="ml-4 hidden items-center space-x-4 sm:ml-6 sm:flex lg:ml-8 lg:space-x-8">
                 {navLinks.map((link, index) => (

@@ -6,6 +6,7 @@ import Nav from "./sections/Nav";
 import Partners from "./sections/Partners";
 import Reviews from "./sections/Reviews";
 import FinanceForm from "./sections/FinanceForm";
+import ConfirmID from "./sections/confirmation/ConfirmID";
 import "./App.css";
 
 import MainHeroImage from "./assets/MainHeroImage.jpg";
@@ -14,7 +15,6 @@ import sub2 from "./assets/sub2.png";
 import card1 from "./assets/card1-removebg-preview.png";
 import card2 from "./assets/card2-removebg-preview.png";
 import cluster from "./assets/cluster.png";
-import ConfirmID from "./sections/confirmation/ConfirmID";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/remittance" element={<FinanceForm />} />
         <Route path="/verification" element={<ConfirmID />} />
+        <Route path="*" element={<LandingPage />} />
       </Routes>
       <Footer />
     </Router>

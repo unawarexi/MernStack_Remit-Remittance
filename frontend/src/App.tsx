@@ -18,10 +18,10 @@ import cluster from "./assets/cluster.png";
 
 function App() {
   return (
-    <Router basename="frontend">
+    <Router basename="/">
       <Nav />
       <Routes>
-        <Route path="*" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/remittance" element={<FinanceForm />} />
         <Route path="/verification" element={<ConfirmID />} />
       </Routes>

@@ -5,7 +5,7 @@ const baseURL = "https://remit-system.onrender.com/api/form"
   
   //'http://localhost:5000/api/form'; // Adjust the URL according to your backend setup
 
-// Define interfaces for the banking information
+// interfaces for the banking information
 interface BankingInfo {
   firstName: string;
   lastName: string;

@@ -1,4 +1,4 @@
-import express, { Application,  Request, Response} from 'express';
+import express, { Application, Response} from 'express';
 import cors from 'cors';
 import { connectDB } from './config/dbconfig';
 import dotenv from 'dotenv';
@@ -23,14 +23,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Handle all routes and serve the main index.html file
-app.get('*', ( req : Request, res : Response) => {
+app.get('*', ( res : Response) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-    const name = req.query.name as string; // Extract 'name' query parameter
-    if (name) {
-        res.send(`Hello, ${name}!`);
-    } else {
-        res.status(400).send('Please provide a name query parameter.');
-    }
+    
 });
 
 if (!PORT) {

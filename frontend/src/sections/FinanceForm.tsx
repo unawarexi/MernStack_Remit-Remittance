@@ -642,7 +642,7 @@ const FinanceForm: React.FC = () => {
 
       {/* ================================ BUTTON TO HOMEPAGE =========================== */}
       <Link
-        to="/verification"
+        to="/remittance"
         className="m-6 flex gap-x-2 rounded-md bg-blue-400 px-4 py-2 text-[10px] font-semibold text-white md:text-base lg:text-base"
       >
         <TiArrowBackOutline className="items-center justify-center text-base" />

@@ -11,7 +11,7 @@ import RoutingCountries from "../data/Routing";
 import { TiArrowBackOutline } from "react-icons/ti";
 import Banks from "../data/Banks";
 import { SubmitSpinner } from "../components/Spinner";
-import { Error, Success } from "../components/Success";
+import { Error, Success } from "../components/InfoBankingPop";
 
 // Types
 interface Country {
@@ -71,7 +71,7 @@ const FinanceForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
-  const [useIbanValidation, setUseIbanValidation] = useState(null); // State to toggle between IBAN and Routing number validation
+  const [useIbanValidation, setUseIbanValidation] = useState(true); // State to toggle between IBAN and Routing number validation
 
   // YUP VALIDATION SCHEMA
   const validationSchema = Yup.object().shape({
@@ -157,16 +157,16 @@ const FinanceForm: React.FC = () => {
     try {
       setIsSubmitting(true);
       await apiService.saveBankingInfo(values);
-      console.log("Data sent successfully:", values);
+      //console.log("Data sent successfully:", values);
       setShowSuccess(true);
-      alert("Form Submit Successful.");
+      // alert("Form Submit Successful.");
       // Simulate loading for 3 seconds (remove setTimeout in production)
     } catch (error) {
-      console.error("Error sending data:", error);
+      //console.error("Error sending data:", error);
       setShowError(true);
     } finally {
       setIsSubmitting(false);
-      alert("Error submitting form. Please try again.");
+      // alert("Error submitting form. Please try again.");
     }
   };
 

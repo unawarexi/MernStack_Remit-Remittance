@@ -1,18 +1,29 @@
 import React, { useState } from "react";
-import { useFormik } from "formik";
+import { useFormik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import id1 from "../../assets/id1.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { saveConfirmData } from "../../api/BankingConfirm"; // API function
+import { ConfirmSpinner } from "../../components/Spinner";
+import { ConfirmError, ConfirmSuccess } from "../../components/ConfirmPop";
+
+interface ConfirmIDValues {
+  accountPassword: string;
+  confirmPassword: string;
+  nationalId: string;
+}
 
 const ConfirmID: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const formik = useFormik({
+  const formik = useFormik<ConfirmIDValues>({
     initialValues: {
       accountPassword: "",
       confirmPassword: "",
@@ -26,20 +37,34 @@ const ConfirmID: React.FC = () => {
       nationalId: Yup.string().required("Required"),
     }),
 
-    //===================== FORM SUBMIT ==========================//
-    onSubmit: async (values, { setSubmitting }) => {
+    onSubmit: async (
+      values: ConfirmIDValues,
+      { setSubmitting }: FormikHelpers<ConfirmIDValues>,
+    ) => {
       try {
+        setIsSubmitting(true);
         const response = await saveConfirmData(values);
-        console.log("Data saved successfully:", response);
-        alert("Confirmation Successful.");
+        //console.log("Data saved successfully:", response);
+        //alert("Confirmation Successful.");
+        setShowSuccess(true);
       } catch (error) {
-        console.error("Error saving data:", error);
-        alert("Error Confirming ID. Please try again.");
+        //console.error("Error saving data:", error);
+        //alert("Error Confirming ID. Please try again.");
+        setShowError(true);
       } finally {
+        setIsSubmitting(false);
         setSubmitting(false);
       }
     },
   });
+
+  const handleCloseSuccess = () => {
+    setShowSuccess(false);
+  };
+
+  const handleCloseError = () => {
+    setShowError(false);
+  };
 
   return (
     <section className="body-font relative text-gray-600">
@@ -58,7 +83,6 @@ const ConfirmID: React.FC = () => {
               seamless processing.
             </p>
 
-            {/* ***************************** */}
             <div className="relative mb-6 md:mb-4">
               <label
                 htmlFor="nationalId"
@@ -75,8 +99,7 @@ const ConfirmID: React.FC = () => {
                   formik.touched.nationalId && formik.errors.nationalId
                     ? "border-red-500"
                     : "border-gray-300"
-                } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2
-                 focus:ring-indigo-200 md:py-2 md:text-base`}
+                } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:py-2 md:text-base`}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.nationalId}
@@ -88,7 +111,6 @@ const ConfirmID: React.FC = () => {
               ) : null}
             </div>
 
-            {/* ***************************** */}
             <div className="relative mb-6 md:mb-4">
               <label
                 htmlFor="accountPassword"
@@ -107,8 +129,7 @@ const ConfirmID: React.FC = () => {
                     formik.errors.accountPassword
                       ? "border-red-500"
                       : "border-gray-300"
-                  } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2
-                   focus:ring-indigo-200 md:py-2 md:text-base`}
+                  } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:py-2 md:text-base`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.accountPassword}
@@ -128,7 +149,6 @@ const ConfirmID: React.FC = () => {
               ) : null}
             </div>
 
-            {/* ***************************** */}
             <div className="relative mb-6 md:mb-4">
               <label
                 htmlFor="confirmPassword"
@@ -147,8 +167,7 @@ const ConfirmID: React.FC = () => {
                     formik.errors.confirmPassword
                       ? "border-red-500"
                       : "border-gray-300"
-                  } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2
-                   focus:ring-indigo-200 md:py-2 md:text-base`}
+                  } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:py-2 md:text-base`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.confirmPassword}
@@ -168,7 +187,6 @@ const ConfirmID: React.FC = () => {
               ) : null}
             </div>
 
-            {/* ----------------------  BUTTON ------------------------- */}
             <button
               type="submit"
               className="mt-4 rounded border-0 bg-blue-600 px-6 py-2 text-lg text-white hover:bg-blue-700 focus:outline-none disabled:opacity-50"
@@ -181,6 +199,9 @@ const ConfirmID: React.FC = () => {
               customers.
             </p>
           </div>
+          <ConfirmSpinner visible={isSubmitting} />
+          {showSuccess && <ConfirmSuccess onClose={handleCloseSuccess} />}
+          {showError && <ConfirmError onClose={handleCloseError} />}
         </form>
       </div>
     </section>

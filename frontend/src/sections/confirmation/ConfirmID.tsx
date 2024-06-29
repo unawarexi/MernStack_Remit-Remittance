@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import id1 from "../../assets/id1.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { saveConfirmData } from "../../api/BankingConfirm"; // API function
 
 const ConfirmID: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,7 +12,6 @@ const ConfirmID: React.FC = () => {
     setShowPassword(!showPassword);
   };
 
-  //--------------------------
   const formik = useFormik({
     initialValues: {
       accountPassword: "",
@@ -25,20 +25,31 @@ const ConfirmID: React.FC = () => {
         .required("Required"),
       nationalId: Yup.string().required("Required"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
+
+    //===================== FORM SUBMIT ==========================//
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        const response = await saveConfirmData(values);
+        console.log("Data saved successfully:", response);
+        alert("Confirmation Successful.");
+      } catch (error) {
+        console.error("Error saving data:", error);
+        alert("Error Confirming ID. Please try again.");
+      } finally {
+        setSubmitting(false);
+      }
     },
   });
 
   return (
     <section className="body-font relative text-gray-600">
-      <div className="container mx-auto flex-wrap  px-5 py-24 sm:flex-nowrap md:grid md:grid-cols-1 lg:flex">
-        <div className="relative flex items-end justify-start overflow-hidden rounded-lg  bg-rose-200 p-4  sm:mr-10 md:w-full md:p-8 lg:w-2/3">
-          <img src={id1} alt="bg image" className="w-full " />
+      <div className="container mx-auto flex-wrap px-5 py-24 sm:flex-nowrap md:grid md:grid-cols-1 lg:flex">
+        <div className="relative flex items-end justify-start overflow-hidden rounded-lg bg-rose-200 p-4 sm:mr-10 md:w-full md:p-8 lg:w-2/3">
+          <img src={id1} alt="bg image" className="w-full" />
         </div>
 
         <form onSubmit={formik.handleSubmit}>
-          <div className="mt-8 flex w-full flex-col  bg-white md:mx-auto md:ml-auto md:mt-0 md:w-[80%] md:py-8 lg:w-full">
+          <div className="mt-8 flex w-full flex-col bg-white md:mx-auto md:ml-auto md:mt-0 md:w-[80%] md:py-8 lg:w-full">
             <h2 className="title-font mb-1 text-lg font-medium text-gray-900 md:text-2xl">
               Confirm Account Identity
             </h2>
@@ -46,6 +57,8 @@ const ConfirmID: React.FC = () => {
               Secure your remittance today: verify your account identity for
               seamless processing.
             </p>
+
+            {/* ***************************** */}
             <div className="relative mb-6 md:mb-4">
               <label
                 htmlFor="nationalId"
@@ -62,7 +75,8 @@ const ConfirmID: React.FC = () => {
                   formik.touched.nationalId && formik.errors.nationalId
                     ? "border-red-500"
                     : "border-gray-300"
-                } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:text-base lg:py-2`}
+                } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2
+                 focus:ring-indigo-200 md:py-2 md:text-base`}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.nationalId}
@@ -73,7 +87,9 @@ const ConfirmID: React.FC = () => {
                 </div>
               ) : null}
             </div>
-            <div className="relative  mb-6 md:mb-4">
+
+            {/* ***************************** */}
+            <div className="relative mb-6 md:mb-4">
               <label
                 htmlFor="accountPassword"
                 className="text-sm leading-7 text-gray-600"
@@ -91,7 +107,8 @@ const ConfirmID: React.FC = () => {
                     formik.errors.accountPassword
                       ? "border-red-500"
                       : "border-gray-300"
-                  } bg-white px-3  py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:text-base lg:py-2`}
+                  } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2
+                   focus:ring-indigo-200 md:py-2 md:text-base`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.accountPassword}
@@ -110,7 +127,9 @@ const ConfirmID: React.FC = () => {
                 </div>
               ) : null}
             </div>
-            <div className="relative  mb-6 md:mb-4">
+
+            {/* ***************************** */}
+            <div className="relative mb-6 md:mb-4">
               <label
                 htmlFor="confirmPassword"
                 className="text-sm leading-7 text-gray-600"
@@ -128,7 +147,8 @@ const ConfirmID: React.FC = () => {
                     formik.errors.confirmPassword
                       ? "border-red-500"
                       : "border-gray-300"
-                  } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 md:text-base lg:py-2`}
+                  } bg-white px-3 py-1 text-sm leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2
+                   focus:ring-indigo-200 md:py-2 md:text-base`}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.confirmPassword}
@@ -148,6 +168,7 @@ const ConfirmID: React.FC = () => {
               ) : null}
             </div>
 
+            {/* ----------------------  BUTTON ------------------------- */}
             <button
               type="submit"
               className="mt-4 rounded border-0 bg-blue-600 px-6 py-2 text-lg text-white hover:bg-blue-700 focus:outline-none disabled:opacity-50"

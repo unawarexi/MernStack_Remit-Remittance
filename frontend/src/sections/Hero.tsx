@@ -62,7 +62,7 @@ const Hero: React.FC<YourComponentProps> = ({}) => {
                 <Link
                   to="/remittance"
                   type="submit"
-                  className="container m-6 mx-auto flex w-1/2  items-center justify-center gap-x-2 rounded-md bg-blue-400 px-4 py-2 text-center text-[10px]
+                  className="container m-6 mx-auto flex w-full items-center justify-center  gap-x-2 rounded-md bg-blue-400 px-4 py-2 text-center text-[10px]
                    font-semibold text-white hover:bg-blue-600 md:text-base lg:w-[30%]  lg:py-4  lg:text-lg"
                 >
                   <BiMoney className="items-center justify-center text-base lg:text-lg" />

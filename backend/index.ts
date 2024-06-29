@@ -1,4 +1,4 @@
-import express, { Application } from 'express';
+import express, { Application,  Request, Response} from 'express';
 import cors from 'cors';
 import { connectDB } from './config/dbconfig';
 import dotenv from 'dotenv';
@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Handle all routes and serve the main index.html file
-app.get('*', ( req, res) => {
+app.get('*', ( req : Request, res : Response) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 

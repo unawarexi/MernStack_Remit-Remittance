@@ -1,8 +1,8 @@
-import express, { Application, Response} from 'express';
+import express, { Application} from 'express';
 import cors from 'cors';
 import { connectDB } from './config/dbconfig';
 import dotenv from 'dotenv';
-import path from 'path';
+// import path from 'path';
 
 // Routes importing
 import formRoutes from './routes/FormRoutes';
@@ -19,14 +19,14 @@ app.use(cors({  origin: true}));
 app.use(express.json());
 
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+// // Serve static files from the React app
+// app.use(express.static(path.join(__dirname, 'client/build')));
 
-// Handle all routes and serve the main index.html file
-app.get('*', ( res : Response) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+// // Handle all routes and serve the main index.html file
+// app.get('*', ( res : Response) => {
+//     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     
-});
+// });
 
 if (!PORT) {
     console.error('PORT is not defined in environment variables');

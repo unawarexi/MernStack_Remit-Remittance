@@ -2,9 +2,11 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import { connectDB } from './config/dbconfig';
 import dotenv from 'dotenv';
+import path from 'path';
 
 // Routes importing
 import formRoutes from './routes/FormRoutes';
+import confirmRouter from "./routes/ConfirmRoutes"
 
 dotenv.config(); // Dotenv configuration
 
@@ -16,11 +18,14 @@ const PORT: string | number | undefined = process.env.PORT;
 app.use(cors({  origin: true}));
 app.use(express.json());
 
-// // Check if MONGO_URL and PORT are defined
-// if (!MONGO_URL) {
-//     console.error('MONGO_URL is not defined in environment variables');
-//     process.exit(1);
-// }
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// Handle all routes and serve the main index.html file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 if (!PORT) {
     console.error('PORT is not defined in environment variables');
@@ -29,6 +34,7 @@ if (!PORT) {
 
 // Working with routes
 app.use('/api/form', formRoutes);
+app.use('/api/form', confirmRouter);
 
 // Start server and connect to the database
 app.listen(PORT, () => {
